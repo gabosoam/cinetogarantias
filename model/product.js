@@ -194,7 +194,7 @@ module.exports = {
         if (!data.area) { data.area = 'N/A' }
         if (!data.contrato) { data.contrato = 'N/A' }
 
-        console.log(data)
+     
 
 
 
@@ -379,6 +379,7 @@ module.exports = {
         if (data.comment == '') { data.comment = 'N/A' }
         if (data.area == '') { data.area = 'N/A' }
         if (data.contrato == '') { data.contrato = 'N/A' }
+        if (!data.location) { data.location = 1 }
 
         connection.query({
             sql: 'UPDATE `billdetail` SET `bill`=?, `fdr`=?, `cso`=?, `wbs`=?, `comment`=?, `area`=?, `contrato`=?, location=?, cant=? WHERE (`id`=?) LIMIT 1',
