@@ -293,6 +293,7 @@ $(document).ready(function () {
         filter: "contains",
         dataTextField: "code",
         dataValueField: "id",
+        optionLabel   : "Buscar un código",
         placeholder: "Buscar código...",
         minLength: 1,
         change: onChange
