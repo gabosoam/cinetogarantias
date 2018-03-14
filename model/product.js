@@ -232,11 +232,12 @@ module.exports = {
 
                         //CODIGO PARA VALIDAR
                         connection.query({
-                            sql: 'SELECT * FROM v_existencias WHERE idprod=?',
+                            sql: 'SELECT * FROM v_existencias_copy WHERE idprod=?',
                             values: [results[0].id]
                         }, function (err, results, fields) {
 
-                            if (error) {
+                            if (err) {
+                                console.log(err)
                                 callback('existió un error');
                             } else {
                                 if (results[0]) {

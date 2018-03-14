@@ -28,6 +28,7 @@ module.exports = {
         if (data.wbs == '') { data.wbs = 'N/A' };
         if (data.area == '') { data.area = 'N/A' };
         if (data.observation == '') { data.observation = 'N/A' };
+        if (!data.location) { data.location = 'OTRO' };
 
 
         var variant, location, barcode, code;
@@ -64,12 +65,14 @@ module.exports = {
                                             barcode = results[0].barcode;
                                             code = results[0].id
 
+                                            console.log("gabo gabo "+barcode+" "+code)
+
                                             connection.query({
-                                                sql: 'SELECT * FROM v_existencias WHERE idprod=?',
+                                                sql: 'SELECT * FROM v_existencias_copy WHERE idprod=?',
                                                 values: [code]
                                             }, function (err, results, fields) {
                                                 if (err) {
-                                                    callback('Existió un error inesperado');
+                                                    callback('Existió un error inesperado '+ err);
                                                 } else {
                                                     if (results[0]) {
 
@@ -127,7 +130,7 @@ module.exports = {
                                                     } else {
 
 
-                                                        callback('Existió un error inesperado');
+                                                        callback('Existió un error inesperado 3');
                                                     }
                                                 }
                                             })
@@ -154,7 +157,7 @@ module.exports = {
                                                             values: [data.bill, code, 'S/N', 'S/S']
                                                         }, function (err, results, fields) {
                                                             if (err) {
-                                                                callback('Existió un error inesperado');
+                                                                callback('Existió un error inesperado '+err);
                                                             } else {
                                                                 if (results[0]) {
                                                                     callback('El producto ya existe en el ingreso actual');
@@ -165,12 +168,12 @@ module.exports = {
                                                                     }, function (err, results, fields) {
                                                                         if (err) {
                                                                             console.log(err)
-                                                                            callback('Existió un error inesperado 1');
+                                                                            callback('Existió un error inesperado 11');
                                                                         } else {
                                                                             if (results.affectedRows > 0) {
                                                                                 callback('Guardado')
                                                                             } else {
-                                                                                callback('Existió un error inesperado 2');
+                                                                                callback('Existió un error inesperado 21');
                                                                             }
                                                                         }
                                                                     })
@@ -181,7 +184,7 @@ module.exports = {
 
 
                                                     } else {
-                                                        callback('Existió un error inesperado 2');
+                                                        callback('Existió un error inesperado 212');
                                                     }
 
 

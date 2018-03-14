@@ -211,12 +211,13 @@ function senData(i) {
         bill: bill,
         barcode: $('#id' + i + '' + 2).text(),
         variant: $('#id' + i + '' + 1).text(),
-        location: $('#id' + i + '' + 3).text(),
-        observation: $('#id' + i + '' + 4).text(),
-        cant: $('#id' + i + '' + 5).text(),
+        wbs: $('#id' + i + '' + 3).text(),
+        cso: $('#id' + i + '' + 4).text(),
+        observation: $('#id' + i + '' + 5).text(),
+        
 
     }, function( data ) {
-        $("#state"+i).text(JSON.stringify(data));
+        $("#state"+i).text(data);
        
   
     });

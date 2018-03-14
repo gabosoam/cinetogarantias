@@ -19,7 +19,7 @@
 
 </head>
 
-<body class="skin-3">
+<body class="skin-2">
 
     <div id="wrapper">
 
@@ -82,31 +82,19 @@
                         </ul>
                     </li>
 
-
-                    <li>
+                    <li class="">
                         <a href="/bill">
                             <i class="fa fa-arrow-right"></i>
                             <span class="nav-label">Ingresos</span>
-                            <span class="fa arrow"></span>
                         </a>
-                        <ul class="nav nav-second-level collapse">
-
-                            <li>
-                                <a href="/bill">Ingresos</a>
-                            </li>
-                            <li>
-                                <a href="/labels">Sitios</a>
-                            </li>
-
-
-
-                        </ul>
-
                     </li>
-                
 
 
-              
+
+
+
+
+
                     <li>
                         <a href="/provider">
                             <i class="fa fa-truck"></i>
@@ -114,12 +102,7 @@
                         </a>
                     </li>
 
-                    <li>
-                        <a href="/location">
-                            <i class="fa fa-map-marker"></i>
-                            <span class="nav-label">Ubicaciones</span>
-                        </a>
-                    </li>
+
 
                     <li class="">
                         <a href="/setting">
@@ -152,7 +135,7 @@
                         <div class="ibox float-e-margins">
                             <div class="ibox-title">
                                 <h5>
-                                   <span class="fa fa-home"> </span>  Inicio
+                                    <span class="fa fa-home"> </span> Inicio
                                 </h5>
                                 <div class="ibox-tools">
                                     <a class="collapse-link">
@@ -165,121 +148,9 @@
                             </div>
                             <div class="ibox-content">
 
-                                <div class="tabs-container">
-                                    <ul class="nav nav-tabs">
-                                        <li class="active">
-                                            <a data-toggle="tab" style="color: black" href="#tab-1"> Existencias</a>
-                                        </li>
-                                        <li class="">
-                                            <a data-toggle="tab" style="color: black" href="#tab-2">Historial</a>
-                                        </li>
-                                    </ul>
-                                    <div class="tab-content">
-                                        <div id="tab-1" class="tab-pane active">
-                                            <div class="panel-body">
-
-                                                <div id="gridexistencias"></div>
-                                            </div>
-                                        </div>
-                                        <div id="tab-2" class="tab-pane">
-                                            <div class="panel-body">
-                                                <div class="row">
-
-                                                    <div class="col-md-3">
-
-                                                        <div class="form-group">
-                                                            <label for="codigo">Código:</label>
-                                                            <input placeholder="Código del producto" type="codigo" class="form-control" id="codigo">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="serie">Número de serie:</label>
-                                                            <input placeholder="Número de serie" type="text" class="form-control" id="serie">
-                                                        </div>
 
 
-
-                                                    </div>
-                                                    <div class="col-md-3">
-
-                                                        <div class="form-group">
-                                                            <label for="fdr">FDR:</label>
-                                                            <input placeholder="Ficha de reparación" type="codigo" class="form-control" id="fdr">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="cso">CSO:</label>
-                                                            <input placeholder="CSO" type="text" class="form-control" id="cso">
-                                                        </div>
-
-
-                                                    </div>
-
-                                                    <div class="col-md-3">
-
-
-                                                        <div class="form-group">
-                                                            <label for="categorias">Tipo:</label>
-                                                            <br>
-
-                                                            <select class="form-control" id="Cat">
-                                                                <option value="">Todas las categorías</option>
-                                                                <option w3-repeat="cat" value="{{id}}">{{name}}</option>
-                                                            </select>
-
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="cso">WBS:</label>
-                                                            <input placeholder="WBS" type="text" class="form-control" id="wbs">
-                                                        </div>
-
-
-
-
-                                                    </div>
-
-
-
-                                                    <div class="col-md-3">
-
-
-                                                        <div class="form-group">
-                                                            <label for="cso">Contrato:</label>
-                                                            <input autocomplete="true" placeholder="Contrato" type="text" class="form-control" id="contrato">
-                                                        </div>
-
-
-
-                                                        <div class="form-group">
-                                                            <label for="mibuton">Acción</label>
-                                                            <br>
-                                                            <button id="mibuton" onclick="buscar()" class="btn btn-success">Buscar</button>
-
-                                                        </div>
-
-
-
-                                                    </div>
-
-                                                    <div class="col-md-12">
-
-                                                        
-                                                        <div id="grid2"></div>
-                                                        <div id="grid4"></div>
-                                                    </div>
-
-                                                    <hr>
-                                                </div>
-
-
-
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-
-                                <!-- <button class="btn btn-success" onclick="etiqueta()">Etiquetas</button> -->
+                                <div id="gridexistencias"></div>
 
 
 
@@ -445,7 +316,7 @@
 
                             }
 
-                          //S  alert(sql)
+                            //S  alert(sql)
 
 
 
@@ -481,20 +352,16 @@
             },
 
             group: [{
-                field: "code", dir: "asc", aggregates: [
-                    { field: "code", aggregate: "count" },
-                    { field: "enbodega", aggregate: "sum" },
-                    { field: "counting", aggregate: "sum" },
-                    { field: "countegs", aggregate: "sum" },
+                field: "contract2", dir: "asc", aggregates: [
+                    { field: "contract2", aggregate: "count" }
+                ]
+            }, {
+                field: "site", dir: "asc", aggregates: [
+                    { field: "site", aggregate: "count" }
                 ]
             }],
 
-            aggregate: [
-                { field: "enbodega", aggregate: "sum" },
-                { field: "counting", aggregate: "sum" },
-                { field: "countegs", aggregate: "sum" },
 
-            ],
         },
         );
 
@@ -523,17 +390,22 @@
             columns: [
 
                 { field: "idprod", hidden: true, title: "FDR", filterable: { search: true, multi: true } },
-                { field: "code", title: "Código", filterable: { search: true, multi: true } },
+
+                { field: "contract", title: "Contrato", filterable: { search: true, multi: true } },
+                { field: "contract2", hidden: true, title: "Contrato", filterable: { search: true, multi: true } },
+                { field: "site", title: "Sitio", filterable: { search: true, multi: true } },
+                { field: "code2", title: "Código", filterable: { search: true, multi: true } },
                 { field: "description", title: "Nombre", filterable: { search: true, multi: true } },
                 { field: "barcode", title: "No. de serie", filterable: { search: true, multi: true } },
-                { field: "category", title: "Categoría", filterable: { search: true, multi: true } },
-                { field: "brand", title: "Marca", filterable: { search: true, multi: true }, groupFooterTemplate: " Total:" },
-                { field: "counting", title: "T. Ingresos", filterable: { search: true, multi: true }, aggregates: ["sum"], groupFooterTemplate: " #=sum#" },
-                { field: "countegs", title: "T. Entregas", filterable: { search: true, multi: true }, aggregates: ["sum"], groupFooterTemplate: " #=sum#" },
-                { field: "enbodega", title: "En bodega", filterable: { search: true, multi: true }, aggregates: ["sum"], groupFooterTemplate: " #=sum#" },
+                { field: "date", title: "F. ingreso", filterable: { search: true, multi: true } },
+                { field: "datestart", title: "F. Inicio", filterable: { search: true, multi: true } },
+                { field: "dateend", title: "F. Fín", filterable: { search: true, multi: true } },
+                { field: "category", hidden: true, title: "Categoría", filterable: { search: true, multi: true } },
+                { field: "brand", hidden: true, title: "Marca", filterable: { search: true, multi: true }, groupFooterTemplate: " Total:" },
 
 
-                { command: [{ text: "Historial", click: showDetails, iconClass: 'icon icon-chart-column' }], title: "Acciones" }],
+                // { command: [{ text: "Historial", click: showDetails, iconClass: 'icon icon-chart-column' }], title: "Acciones" }
+            ],
             dataBound: function (e) {
                 if (this.dataSource.group().length > 0) {
 
@@ -541,6 +413,15 @@
                     for (var i = 0; i < $(".k-grouping-row").length; i++) {
                         this.collapseGroup($(".k-grouping-row")[i]);
                     }
+
+                }
+            },
+
+            filter: function (e) {
+                if (e.filter == null) {
+                    console.log("filter has been cleared");
+                } else {
+                    console.log(e);
 
                 }
             },
@@ -694,7 +575,7 @@
                             { field: "company", title: "Empresa", filterable: { search: true, multi: true } },
                             { field: "client", title: "Cliente", filterable: { search: true, multi: true } },
                             { field: "clientcompany", title: "Empresa", filterable: { search: true, multi: true } },
-                            { field: "user",hidden:true, title: "Realizado por", filterable: { search: true, multi: true } },
+                            { field: "user", hidden: true, title: "Realizado por", filterable: { search: true, multi: true } },
 
                             { command: [{ text: "Historial", click: showDetails, iconClass: 'icon icon-chart-column' }], title: "Acciones" }],
 

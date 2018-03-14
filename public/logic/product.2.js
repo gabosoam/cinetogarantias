@@ -536,23 +536,17 @@ $(document).ready(function () {
                 resizable: true,
                 pageable: { refresh: true, pageSizes: true, },
                 columns: [
-                    { field: "code2", title: "Código", filterable: { search: true, multi: true }, editor: comboCodigos, groupHeaderTemplate: "#= value#  [#= count# ítem(s)]" },
+                    { field: "code2", title: "Código", filterable: { search: true, multi: true }, editor: comboCodigos,  groupHeaderTemplate: "#= value# [#= count# ítem(s)]" },
                     { field: "description", title: "Nombre", filterable: { search: true, multi: true } },
-                    { field: "barcode", aggregates: ["count"], title: "No. de serie", filterable: { search: true, multi: true } },
-                    { field: "Producto", hidden: true, aggregates: ["min", "max", "count"] },
+                    { field: "barcode", aggregates: ["count"], title: "Serie", filterable: { search: true, multi: true } },
                     { field: "category", title: "Tipo", filterable: { search: true, multi: true } },
-                    { field: "brand", title: "Marca", filterable: { search: true, multi: true } ,  groupFooterTemplate: "Total:"},
-
-
-                    { field: "cant", aggregates: ["sum"], title: "Cant.", filterable: { search: true, multi: true }, aggregates: ["sum"], groupFooterTemplate: "#=sum#" },
-                    { field: "location", title: "Almacén", values: data, filterable: { search: true, multi: true } },
-                    { field: "fdr", title: "FDR", filterable: { search: true, multi: true } },
-                    { field: "cso", title: "CSO", filterable: { search: true, multi: true } },
-                    { field: "wbs", title: "WBS", filterable: { search: true, multi: true } },
-                    { field: "contrato", title: "Contrato", filterable: { search: true, multi: true } },
-                    { field: "area", title: "Área", filterable: { search: true, multi: true } },
+                    { field: "brand", title: "Marca", filterable: { search: true, multi: true }},
+                    { field: "wbs", title: "WBS",filterable: { search: true, multi: true } },
+                    { field: "cso", title: "CSO",filterable: { search: true, multi: true } },
+                
+       
                     { field: "comment", title: "Comentario", filterable: { search: true, multi: true } },
-                    { field: "bill", title: "Factura", hidden: true }],
+                    { field: "bill", title: "Comprobante", hidden: true }],
                 groupable: false,
                 editable: "popup"
             })

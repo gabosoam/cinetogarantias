@@ -119,6 +119,8 @@
                             <span class="nav-label">Inicio</span>
                         </a>
                     </li>
+
+
                     <li>
                         <a href="#">
                             <i class="fa fa-cube"></i>
@@ -145,40 +147,20 @@
 
                         </ul>
                     </li>
-                    <li>
+
+                    <li class="active">
                         <a href="/bill">
                             <i class="fa fa-arrow-right"></i>
                             <span class="nav-label">Ingresos</span>
-                            <span class="fa arrow"></span>
-                        </a>
-                        <ul class="nav nav-second-level collapse">
-
-                            <li>
-                                <a href="/bill">Ingresos</a>
-                            </li>
-                            <li>
-                                <a href="/labels">Etiquetas</a>
-                            </li>
-
-
-
-                        </ul>
-
-                    </li>
-                    <li>
-                        <a href="/vouchers">
-                            <i class="fa fa-arrow-left"></i>
-                            <span class="nav-label">Entregas</span>
                         </a>
                     </li>
 
 
-                    <li>
-                        <a href="/client">
-                            <i class="fa fa-address-book"></i>
-                            <span class="nav-label">Clientes</span>
-                        </a>
-                    </li>
+
+
+
+
+
                     <li>
                         <a href="/provider">
                             <i class="fa fa-truck"></i>
@@ -186,12 +168,7 @@
                         </a>
                     </li>
 
-                    <li>
-                        <a href="/location">
-                            <i class="fa fa-map-marker"></i>
-                            <span class="nav-label">Ubicaciones</span>
-                        </a>
-                    </li>
+
 
                     <li class="">
                         <a href="/setting">
@@ -226,7 +203,7 @@
                         <div class="ibox float-e-margins">
                             <div class="ibox-title">
                                 <h5>
-                                    <img src="../images/nokia.png" width="100px" alt="">
+                                    Ingresos
                                 </h5>
                                 <div class="ibox-tools">
                                     <a class="collapse-link">
@@ -286,11 +263,16 @@
                                         </div>
 
                                         <div class="col-md-3">
-                                            <label for="txtSerie">Ubicación:</label>
-                                            <input required validationMessage="Este campo es obligatorio" id="txtUbicacion" name="location" name="barcode" style="width: 100%;"
-                                            />
-
+                                            <label for="txtCodigo">WBS:</label>
+                                            <input class="form-control" placeholder="Ingresar comentario" name="wbs" id="txtWbs" style="width: 100%;" />
                                         </div>
+
+                                        <div class="col-md-3">
+                                            <label for="txtCodigo">CSO:</label>
+                                            <input class="form-control" placeholder="Ingresar comentario" name="cso" id="txtWbs" style="width: 100%;" />
+                                        </div>
+
+                                       
 
                                        
 
@@ -386,7 +368,7 @@
 
                                 <div class="w3-display-container" style="height:55px;">
 
-                                    <img id="auto" class="w3-display-middle" class="" src="../images/nokia.png" width="280px" height="55px" />
+                                    <img id="auto" class="w3-display-middle" class="" src="http://www.cineto.net/images/cineto/logo_cineto.svg" width="280px" height="55px" />
 
 
                                     <p class="w3-display-right cuerpo ">
@@ -445,12 +427,12 @@
                                             <th class="borde-celda" style="text-align: center">Cant</th>
                                             <th class="borde-celda" style="text-align: center">Tipo</th>
                                             <th class="borde-celda" style="text-align: center">Marca</th>
-                                            <th class="borde-celda" style="text-align: center">FDR</th>
+                                
                                             <th class="borde-celda" style="text-align: center">CSO</th>
                                             <th class="borde-celda" style="text-align: center">WBS</th>
-                                            <th class="borde-celda" style="text-align: center">Ubicación</th>
-                                            <th class="borde-celda" style="text-align: center">Contrato</th>
-                                            <th class="borde-celda" style="text-align: center">Área</th>
+                               
+                                          
+                                       
                                             <th class="borde-celda" style="text-align: center">Comentario</th>
                                         </tr>
                                     </thead>
@@ -462,12 +444,11 @@
                                             <td class="borde-celda" style="text-align: center">{{cant}}</td>
                                             <td class="borde-celda" style="text-align: center">{{category}}</td>
                                             <td class="borde-celda" style="text-align: center">{{brand}}</td>
-                                            <td class="borde-celda" style="text-align: center">{{fdr}}</td>
+                                         
                                             <td class="borde-celda" style="text-align: center">{{cso}}</td>
                                             <td class="borde-celda" style="text-align: center">{{wbs}}</td>
-                                            <td class="borde-celda" style="text-align: center">{{location2}}</td>
-                                            <td class="borde-celda" style="text-align: center">{{contrato}}</td>
-                                            <td class="borde-celda" style="text-align: center">{{area}}</td>
+                                   
+                                     
                                             <td class="borde-celda" style="text-align: center">
                                                 {{comment}}
                                             </td>

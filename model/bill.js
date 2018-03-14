@@ -73,9 +73,9 @@ module.exports = {
 
     create: function (datos, callback) {
 
-        connection.query('INSERT INTO bill (provider, date,datestart, dateend, site, contract, reference, document, user, type) VALUES (?,?,?,?,?,?)', [datos.provider, new Date(datos.date).toLocaleDateString(),new Date(datos.datestart).toLocaleDateString(),new Date(datos.dateend).toLocaleDateString(), datos.site.toUpperCase(),datos.contract.toUpperCase(), datos.reference.toUpperCase(), datos.document, datos.user,1], function (error, results, fields) {
+        connection.query('INSERT INTO bill (provider, date,datestart, dateend, site, contract, reference, document, user, type) VALUES (?,?,?,?,?,?,?,?,?,?)', [datos.provider, new Date(datos.date).toLocaleDateString(),new Date(datos.datestart).toLocaleDateString(),new Date(datos.dateend).toLocaleDateString(), datos.site.toUpperCase(),datos.contract.toUpperCase(), datos.reference.toUpperCase(), datos.document, datos.user,1], function (error, results, fields) {
             if (error) {
-             
+                console.log(error)
                 callback('error en la consulta: ' + error, null);
             } else {
                 callback(null, results);

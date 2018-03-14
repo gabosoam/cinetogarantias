@@ -537,12 +537,9 @@ $(document).ready(function () {
                     { field: "description", title: "Nombre", filterable: { search: true, multi: true } },
                     { field: "barcode", aggregates: ["count"], title: "Serie", filterable: { search: true, multi: true } },
                     { field: "category", title: "Tipo", filterable: { search: true, multi: true } },
-                    { field: "brand", title: "Marca", filterable: { search: true, multi: true },  groupFooterTemplate: "Total:" },
-                   
-                   
-    
-                    { field: "cant", aggregates: ["sum"], title: "Cant.", filterable: { search: true, multi: true },aggregates: ["sum"],  groupFooterTemplate: "#=sum#" },
-                    { field: "location", title: "Ubicación", values: data, filterable: { search: true, multi: true } },
+                    { field: "brand", title: "Marca", filterable: { search: true, multi: true }},
+                    { field: "wbs", title: "WBS",filterable: { search: true, multi: true } },
+                    { field: "cso", title: "CSO",filterable: { search: true, multi: true } },
                 
        
                     { field: "comment", title: "Comentario", filterable: { search: true, multi: true } },
