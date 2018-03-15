@@ -9,6 +9,10 @@ router.get('/', isLoggedIn, function (req, res, next) {
   res.render('bill', { user: sess.usuarioDatos });
 });
 
+router.get('/saludar', function (req, res, next) {
+  res.send({mensaje:'hola'})
+});
+
 
 
 router.get('/:bill', isLoggedIn, function (req, res, next) {

@@ -11,12 +11,14 @@ var roles = [{
 kendo.culture("es-ES");
 $(document).ready(function () {
 
+ 
+
     dataSource = new kendo.data.DataSource({
         transport: {
-            read: { url: "/provider/read", dataType: "json" },
-            update: { url: "/provider/update", type: "POST", dataType: "json" },
-            destroy: { url: "/provider/delete", type: "POST", dataType: "json" },
-            create: { url: "/provider/create", type: "POST", dataType: "json" },
+            read: { url: "/site/read", dataType: "json" },
+            update: { url: "/site/update", type: "POST", dataType: "json" },
+            destroy: { url: "/site/delete", type: "POST", dataType: "json" },
+            create: { url: "/site/create", type: "POST", dataType: "json" },
             parameterMap: function (options, operation) {
                 if (operation !== "read" && options.models) {
                     var datos = options.models[0]
@@ -37,8 +39,8 @@ $(document).ready(function () {
             model: {
                 id: "id",
                 fields: {
-                    id: { editable: false, nullable: false},
-                    company: { validation: { required: false, }, type: 'string' }
+                    siteasigned: { validation: { required: false, }, type: 'string' },
+                    name: { validation: { required: true, }, type: 'string' }
                 }
             }
         }
@@ -53,12 +55,12 @@ $(document).ready(function () {
         pageable: { refresh: true, pageSizes: true, },
         toolbar: ['create','excel'],
         columns: [
-          
-            { field: "company", title: "Empresa", filterable: { multi: true, search: true, search: true } },
-            { command: ["edit", "destroy"], title: "Acciones"}],
+            { field: "siteasigned", title: "Sitio asignado", filterable: { search: true, multi:true } },
+            { field: "name", title: "Nombre sitio", filterable: { search: true, multi:true } },
+            { command: ["edit", "destroy"], title: "Acciones" }],
         editable: "inline"
     });
 });
-function redirect(location) {
-    window.location.href = location;
+function redirect(category) {
+    window.location.href = category;
 }

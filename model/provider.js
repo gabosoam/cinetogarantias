@@ -28,7 +28,7 @@ module.exports = {
     },
 
     update: function (datos, callback) {
-        connection.query('UPDATE `provider` SET `name`=?,`company`=? WHERE (`id`=?) LIMIT 1', [datos.name.toUpperCase(), datos.company.toUpperCase(), datos.id], function (error, results, fields) {//
+        connection.query('UPDATE `provider` SET `company`=? WHERE (`id`=?) LIMIT 1', [datos.company.toUpperCase(), datos.id], function (error, results, fields) {//
             if (error) {
                 callback(error, null);
             } else {
@@ -53,7 +53,7 @@ module.exports = {
 
 
     create: function (datos, callback) {
-        connection.query('INSERT INTO provider(name, company) VALUES(?,?)', [datos.name.toUpperCase(), datos.company.toUpperCase()], function (error, results, fields) {//
+        connection.query('INSERT INTO provider(company) VALUES(?)', [datos.company.toUpperCase()], function (error, results, fields) {//
             if (error) {
                 callback(error, null);
             } else {

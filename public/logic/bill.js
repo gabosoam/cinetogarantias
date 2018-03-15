@@ -36,11 +36,35 @@ $(document).ready(function () {
         }
     });
 
+    dataSourceComboSites = new kendo.data.DataSource({
+        transport: {
+            read: {
+                url: "/site/read",
+                dataType: "json"
+            }
+        }
+    });
+
+
+
+
     function userNameComboBoxEditor(container, options) {
         $('<input required data-bind="value:' + options.field + '"/>')
             .appendTo(container)
             .kendoComboBox({
                 dataSource: dataSourceCombo,
+                dataTextField: "company",
+                dataValueField: "id",
+                filter: "contains",
+                minLength: 1
+            });
+    }
+
+    function userNameComboBoxEditorSites(container, options) {
+        $('<input required data-bind="value:' + options.field + '"/>')
+            .appendTo(container)
+            .kendoComboBox({
+                dataSource: dataSourceComboSites,
                 dataTextField: "name",
                 dataValueField: "id",
                 filter: "contains",
@@ -64,7 +88,7 @@ $(document).ready(function () {
         batch: true,
         pageSize: 1000,
         serverFiltering: false,
-        
+
         requestEnd: function (e) {
             if (e.type != "read") {
                 // refresh the grid
@@ -102,58 +126,60 @@ $(document).ready(function () {
 
         $.get("/user/read2", function (users) {
 
+            $.get("/site/read2", function (sites) {
 
-            $("#grid").kendoGrid({
-                dataSource: dataSource,
-                height: 475,
-                filterable: true,
-                groupable: true,
-                resizable: true,
 
-                pageable: { refresh: true, pageSizes: true, },
-                toolbar: ['create', 'excel'],
-                pdf: {
-                    allPages: true,
-                    avoidLinks: false,
-                    paperSize: "A4",
-                    margin: { top: "3.5cm", left: "1cm", right: "1cm", bottom: "2cm" },
-                    landscape: true,
-                    repeatHeaders: true,
-                    template: $("#page-template").html(),
-                    scale: 0.8
-                },
-                pdfExport: function (e) {
-                    var grid = $("#grid").data("kendoGrid");
-                    grid.hideColumn(6);
+                $("#grid").kendoGrid({
+                    dataSource: dataSource,
+                    height: 475,
+                    filterable: true,
+                    groupable: true,
+                    resizable: true,
 
-                    e.promise
-                        .done(function () {
-                            grid.showColumn(6);
-                        });
-                },
-                columns: [
-                  
-                    { field: "codigo", title: "Ingreso", filterable: { search: true, multi: true } },
-                    { field: "date", title: "Fecha", filterable: { search: true, search: true }, format: "{0:dd/MM/yyyy}" },
-                    { field: "provider", values: providers, editor: userNameComboBoxEditor, title: "Proveedor", filterable: { multi: true, search: true } },
-                    
-                    { field: "document", values: types, title: "Tipo documento", filterable: { multi: true, search: true, search: true } },
-                    { field: "reference", title: "Referencia", filterable: { multi: true, search: true } },
-                    { field: "contract", title: "Contrato", filterable: { search: true, multi: true } },
-                    { field: "site", title: "Sitio", filterable: { search: true, multi: true } },
-                    { field: "datestart", title: "Fecha Inicio", filterable: { search: true, search: true }, format: "{0:dd/MM/yyyy}" },
-                    { field: "dateend", title: "Fecha fín", filterable: { search: true, search: true }, format: "{0:dd/MM/yyyy}" },
-                    { field: "user", values: users, title: "Creado por", filterable: { multi: true, search: true } },
-                    { field: "state", values: states, title: "Estado",filterable: { multi: true,search: true } },
+                    pageable: { refresh: true, pageSizes: true, },
+                    toolbar: ['create', 'excel'],
+                    pdf: {
+                        allPages: true,
+                        avoidLinks: false,
+                        paperSize: "A4",
+                        margin: { top: "3.5cm", left: "1cm", right: "1cm", bottom: "2cm" },
+                        landscape: true,
+                        repeatHeaders: true,
+                        template: $("#page-template").html(),
+                        scale: 0.8
+                    },
+                    pdfExport: function (e) {
+                        var grid = $("#grid").data("kendoGrid");
+                        grid.hideColumn(6);
 
-                    { command: ["edit", "destroy", { text: "Ver detalles", click: showDetails, iconClass: 'icon icon-chart-column' }], title: "Acciones" }],
-                editable: "popup"
+                        e.promise
+                            .done(function () {
+                                grid.showColumn(6);
+                            });
+                    },
+                    columns: [
+
+                        { field: "codigo", title: "Ingreso", filterable: { search: true, multi: true } },
+                        { field: "date", title: "Fecha", filterable: { search: true, search: true }, format: "{0:dd/MM/yyyy}" },
+                        { field: "provider", values: providers, editor: userNameComboBoxEditor, title: "Cliente", filterable: { multi: true, search: true } },
+
+                        { field: "document", values: types, title: "Tipo documento", filterable: { multi: true, search: true, search: true } },
+                        { field: "reference", title: "Referencia", filterable: { multi: true, search: true } },
+                        { field: "contract", title: "Contrato", filterable: { search: true, multi: true } },
+                        { field: "site", values:sites, title: "Sitio", editor: userNameComboBoxEditorSites, filterable: { search: true, multi: true } },
+                        { field: "datestart", title: "Fecha Inicio garantía", filterable: { search: true, search: true }, format: "{0:dd/MM/yyyy}" },
+                        { field: "dateend", title: "Fecha fín garantía", filterable: { search: true, search: true }, format: "{0:dd/MM/yyyy}" },
+                        { field: "user", values: users, title: "Creado por", filterable: { multi: true, search: true } },
+                        { field: "state", values: states, title: "Estado", filterable: { multi: true, search: true } },
+
+                        { command: ["edit", "destroy", { text: "Ver detalles", click: showDetails, iconClass: 'icon icon-chart-column' }], title: "Acciones" }],
+                    editable: "popup"
+                });
+
             });
 
-        });
 
-
-
+        })
     })
 
     function showDetails(e) {

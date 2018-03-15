@@ -25,12 +25,13 @@ var bill = require('./routes/bill');
 var history = require('./routes/history');
 var ticket = require('./routes/ticket');
 var setting = require('./routes/setting');
+var site = require('./routes/site');
 
 var child_process = require('child_process');
 
 
 var CronJob = require('cron').CronJob;
-var job = new CronJob('59 59 20 * * 1-5', function() {
+/* var job = new CronJob('59 59 20 * * 1-5', function() {
 child_process.exec('cmd /c start C:\INVENTARIO/inventario/bat/bat.bat', function(error,data){
 if (error) {
 
@@ -39,13 +40,11 @@ if (error) {
 }
 });
 
-    
-  
   }, function () {
    
   },
   true
-);
+); */
 
 
 
@@ -93,6 +92,7 @@ app.use('/bill', bill);
 app.use('/history', history);
 app.use('/labels', ticket);
 app.use('/setting', setting);
+app.use('/site', site);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -36,49 +36,113 @@
 
                 </div>
                 <div class="modal-body">
-                    <a class="btn btn-link" href="../PLANTILLA.csv"> Descargar plantilla</a>
-                    <br>
-                    <br>
-                    <form class="form-horizontal ">
-
-                        <fieldset>
-                            <label for="csvFileInput">
-                                <strong>Seleccionar archivo CSV:</strong>
-                            </label>
-                            <input type="file" class="" id="csvFileInput" onchange="handleFiles(this.files)" accept=".csv">
-                            <br>
-                            <!-- <i id="spinner" class="fa fa-spinner fa-spin fa-2x" aria-hidden="true"></i> -->
-
-                        </fieldset>
-                    </form>
-
-                </div>
-                <div class="tabs-container">
-                    <ul class="nav nav-tabs">
-                        <li class="active">
-                            <a data-toggle="tab" href="#tab-1"> Productos</a>
-                        </li>
-                        <li class="">
-                            <a data-toggle="tab" href="#tab-2">Nuevos códigos</a>
-                        </li>
-                    </ul>
-                    <div class="tab-content">
-                        <div id="tab-1" class="tab-pane active">
-                            <div class="panel-body">
-                                <button class="btn btn-primary" onclick="iniciar()">Iniciar ingreso</button>
-                                <div id="output2" style="height: 150; background-color: white"></div>
+                    <div class="panel-group" id="accordion">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h5 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">1. Descargar la plantilla desde el siguiente enlace</a>
+                                </h5>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    <a href="../PLANTILLA.csv">Plantilla.csv</a>
+                                </div>
                             </div>
                         </div>
-                        <div id="tab-2" class="tab-pane">
-                            <div class="panel-body">
-                                <button class="btn btn-primary" onclick="change()">Cambiar</button>
-                                <div id="output" style="height: 150; background-color: white"></div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">2. Abrir el archivo con una apliación de hojas de cálculo como por ejemplo Microsoft
+                                        Excel. (Ver imagen)</a>
+                                </h4>
+                            </div>
+                            <div id="collapseTwo" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <img width="100%" src="../manual/plantilla.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">3. Ingresar los datos y guardar. (Ver imagen)</a>
+                                </h4>
+                            </div>
+                            <div id="collapseThree" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <img src="../manual/ingreso.png" width="100%" alt="">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">4. Cargar el archivo al sistema desde el siguiente enlace.</a>
+                                </h4>
+                            </div>
+                            <div id="collapse4" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <form class="form-horizontal ">
+
+                                        <fieldset>
+                                            <label for="csvFileInput">
+                                                <strong>Seleccionar archivo CSV:</strong>
+                                            </label>
+                                            <input type="file" class="" id="csvFileInput" onchange="handleFiles(this.files)" accept=".csv">
+                                            <br>
+                                            <!-- <i id="spinner" class="fa fa-spinner fa-spin fa-2x" aria-hidden="true"></i> -->
+
+                                        </fieldset>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">5. Comprobar si existen nuevos códigos</a>
+                                </h4>
+                            </div>
+                            <div id="collapse5" class="panel-collapse collapse">
+                                <div class="panel-body">
+
+                                    <p>En caso de que existan nuevos códigos se mostrará una lista en caso contrario puede continuar
+                                        con el siguiente paso</p>
+                                    <div id="output" style="height: 150; background-color: white"></div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse6">6. Iniciar ingreso</a>
+                                </h4>
+                            </div>
+                            <div id="collapse6" class="panel-collapse collapse">
+                                <div class="panel-body">
+
+                                    <button class="btn btn-success" onclick="iniciar()">Iniciar ingreso</button>
+                                    <div id="output2" style="height: 150; background-color: white"></div>
+
+
+
+                                </div>
                             </div>
                         </div>
                     </div>
 
 
+
                 </div>
+
             </div>
 
         </div>
@@ -155,6 +219,13 @@
                         </a>
                     </li>
 
+                    <li>
+                        <a href="/site">
+                            <i class="fa fa-map-marker"></i>
+                            <span class="nav-label">Sitios</span>
+                        </a>
+                    </li>
+
 
 
 
@@ -163,8 +234,8 @@
 
                     <li>
                         <a href="/provider">
-                            <i class="fa fa-truck"></i>
-                            <span class="nav-label">Proveedores</span>
+                            <i class="fa fa-address-book"></i>
+                            <span class="nav-label">Clientes</span>
                         </a>
                     </li>
 
@@ -272,17 +343,17 @@
                                             <input class="form-control" placeholder="Ingresar comentario" name="cso" id="txtWbs" style="width: 100%;" />
                                         </div>
 
-                                       
 
-                                       
 
-                                     
+
+
+
                                     </div>
 
-                                 
+
 
                                     <div class="row">
-                                        
+
 
                                         <div class="col-md-3">
                                             <label for="txtSerie">Acción:</label>
@@ -368,7 +439,8 @@
 
                                 <div class="w3-display-container" style="height:55px;">
 
-                                    <img id="auto" class="w3-display-middle" class="" src="http://www.cineto.net/images/cineto/logo_cineto.svg" width="280px" height="55px" />
+                                    <img id="auto" class="w3-display-middle" class="" src="http://www.cineto.net/images/cineto/logo_cineto.svg" width="280px"
+                                        height="55px" />
 
 
                                     <p class="w3-display-right cuerpo ">
@@ -394,12 +466,9 @@
 
                                     <div>
 
+
                                         <p class="cuerpo">
-                                            <strong>Proveedor: </strong>
-                                            <%=data.name%>
-                                        </p>
-                                        <p class="cuerpo">
-                                            <strong>Empresa: </strong>
+                                            <strong>Cliente: </strong>
                                             <%=data.company%>
                                         </p>
                                         <p class="cuerpo">
@@ -424,16 +493,16 @@
                                             <th class="borde-celda" style="text-align: center">Código</th>
                                             <th class="borde-celda" class="borde-celda" style="text-align: center">Nombre</th>
                                             <th class="borde-celda" style="text-align: center">Serie</th>
-                                            <th class="borde-celda" style="text-align: center">Cant</th>
+
                                             <th class="borde-celda" style="text-align: center">Tipo</th>
                                             <th class="borde-celda" style="text-align: center">Marca</th>
-                                
+
                                             <th class="borde-celda" style="text-align: center">CSO</th>
                                             <th class="borde-celda" style="text-align: center">WBS</th>
-                               
-                                          
-                                       
-                                            <th class="borde-celda" style="text-align: center">Comentario</th>
+
+
+
+
                                         </tr>
                                     </thead>
                                     <tbody class="w3-border" style="font-size:11px;">
@@ -441,17 +510,15 @@
                                             <td class="borde-celda" style="text-align: center">{{code2}}</td>
                                             <td class="borde-celda" style="text-align: center">{{description}}</td>
                                             <td class="borde-celda" style="text-align: center">{{barcode}}</td>
-                                            <td class="borde-celda" style="text-align: center">{{cant}}</td>
+
                                             <td class="borde-celda" style="text-align: center">{{category}}</td>
                                             <td class="borde-celda" style="text-align: center">{{brand}}</td>
-                                         
+
                                             <td class="borde-celda" style="text-align: center">{{cso}}</td>
                                             <td class="borde-celda" style="text-align: center">{{wbs}}</td>
-                                   
-                                     
-                                            <td class="borde-celda" style="text-align: center">
-                                                {{comment}}
-                                            </td>
+
+
+
                                         </tr>
 
 

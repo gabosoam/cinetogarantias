@@ -89,6 +89,13 @@
                         </a>
                     </li>
 
+                    <li>
+                        <a href="/site">
+                            <i class="fa fa-map-marker"></i>
+                            <span class="nav-label">Sitios</span>
+                        </a>
+                    </li>
+
 
 
 
@@ -97,8 +104,8 @@
 
                     <li>
                         <a href="/provider">
-                            <i class="fa fa-truck"></i>
-                            <span class="nav-label">Proveedores</span>
+                            <i class="fa fa-address-book"></i>
+                            <span class="nav-label">Clientes</span>
                         </a>
                     </li>
 
@@ -356,8 +363,8 @@
                     { field: "contract2", aggregate: "count" }
                 ]
             }, {
-                field: "site", dir: "asc", aggregates: [
-                    { field: "site", aggregate: "count" }
+                field: "site2", dir: "asc", aggregates: [
+                    { field: "site2", aggregate: "count" }
                 ]
             }],
 
@@ -393,7 +400,10 @@
 
                 { field: "contract", title: "Contrato", filterable: { search: true, multi: true } },
                 { field: "contract2", hidden: true, title: "Contrato", filterable: { search: true, multi: true } },
-                { field: "site", title: "Sitio", filterable: { search: true, multi: true } },
+                { field: "siteasigned", title: "Sitio asignado", filterable: { search: true, multi: true } },
+                { field: "name", title: "Nombre sitio", filterable: { search: true, multi: true } },
+                { field: "company", title: "Cliente", filterable: { search: true, multi: true } },
+                { field: "site2", hidden:true, title: "Sitio", filterable: { search: true, multi: true } },
                 { field: "code2", title: "Código", filterable: { search: true, multi: true } },
                 { field: "description", title: "Nombre", filterable: { search: true, multi: true } },
                 { field: "barcode", title: "No. de serie", filterable: { search: true, multi: true } },
@@ -401,7 +411,7 @@
                 { field: "datestart", title: "F. Inicio", filterable: { search: true, multi: true } },
                 { field: "dateend", title: "F. Fín", filterable: { search: true, multi: true } },
                 { field: "category", hidden: true, title: "Categoría", filterable: { search: true, multi: true } },
-                { field: "brand", hidden: true, title: "Marca", filterable: { search: true, multi: true }, groupFooterTemplate: " Total:" },
+                { field: "brand", hidden: true, title: "Marca", filterable: { search: true, multi: true }},
 
 
                 // { command: [{ text: "Historial", click: showDetails, iconClass: 'icon icon-chart-column' }], title: "Acciones" }

@@ -192,7 +192,7 @@ function iniciar() {
        senData(aux);
 
     }
-    console.log(codeaux)
+   
 }
 
 function compare(data) {
@@ -217,7 +217,7 @@ function senData(i) {
         
 
     }, function( data ) {
-        $("#state"+i).text(data);
+        $("#state"+i).text(JSON.stringify(data));
        
   
     });
