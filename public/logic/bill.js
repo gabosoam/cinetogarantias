@@ -39,7 +39,7 @@ $(document).ready(function () {
     dataSourceComboSites = new kendo.data.DataSource({
         transport: {
             read: {
-                url: "/site/read",
+                url: "/site/read2",
                 dataType: "json"
             }
         }
@@ -65,8 +65,8 @@ $(document).ready(function () {
             .appendTo(container)
             .kendoComboBox({
                 dataSource: dataSourceComboSites,
-                dataTextField: "name",
-                dataValueField: "id",
+                dataTextField: "text",
+                dataValueField: "value",
                 filter: "contains",
                 minLength: 1
             });
