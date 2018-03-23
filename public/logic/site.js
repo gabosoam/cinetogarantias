@@ -54,6 +54,9 @@ $(document).ready(function () {
         resizable: true,
         pageable: { refresh: true, pageSizes: true, },
         toolbar: ['create','excel'],
+        excel: {
+            allPages: true
+        },
         columns: [
             { field: "siteasigned", title: "Sitio asignado", filterable: { search: true, multi:true } },
             { field: "name", title: "Nombre sitio", filterable: { search: true, multi:true } },

@@ -138,6 +138,9 @@ $(document).ready(function () {
 
                     pageable: { refresh: true, pageSizes: true, },
                     toolbar: ['create', 'excel'],
+                    excel: {
+                        allPages: true
+                    },
                     pdf: {
                         allPages: true,
                         avoidLinks: false,
