@@ -211,9 +211,9 @@ function senData(i) {
         bill: bill,
         barcode: $('#id' + i + '' + 2).text(),
         variant: $('#id' + i + '' + 1).text(),
-        wbs: $('#id' + i + '' + 3).text(),
-        cso: $('#id' + i + '' + 4).text(),
-        observation: $('#id' + i + '' + 5).text(),
+        wbs: $('#id' + i + '' + 4).text().trim().toUpperCase(),
+        cso: $('#id' + i + '' + 3).text().trim().toUpperCase(),
+        observation: $('#id' + i + '' + 5).text().trim().toUpperCase() ,
         
 
     }, function( data ) {
