@@ -296,33 +296,17 @@
                         var datos = options.models[0]
                         return datos;
                     }
-
-
                     if (operation == "read") {
-
-
-
                         if (options.filter) {
-
-
                             sql = "SELECT * FROM v_existencias WHERE"
                             sqlAll = "SELECT * FROM v_existencias";
-
-
-
-
-
                             for (let i = 0; i < options.filter.filters.length; i++) {
-
-
                                 if (i == 0) {
                                     sql = sql + " " + options.filter.filters[i].field + " = '" + options.filter.filters[i].value + "' ";
                                 } else {
                                     sql = sql + " OR " + options.filter.filters[i].field + " = '" + options.filter.filters[i].value + "'";
                                 }
-
                             }
-
                             //S  alert(sql)
 
 
@@ -352,7 +336,10 @@
                     id: "idprod",
                     fields: {
                         idprod: { editable: false },
-                        estado: { editable: false }
+                        estado: { editable: false },
+                        date: { validation: { required: false, }, type: 'date' },
+                        datestart: { validation: { required: false, }, type: 'date' },
+                    dateend: { validation: { required: false, }, type: 'date' },
 
                     }
                 }
@@ -407,9 +394,9 @@
                 { field: "code2", title: "Código", filterable: { search: true, multi: true } },
                 { field: "description", title: "Nombre", filterable: { search: true, multi: true } },
                 { field: "barcode", title: "No. de serie", filterable: { search: true, multi: true } },
-                { field: "date", title: "F. ingreso", filterable: { search: true, multi: true } },
-                { field: "datestart", title: "F. Inicio", filterable: { search: true, multi: true } },
-                { field: "dateend", title: "F. Fín", filterable: { search: true, multi: true } },
+                { field: "date", title: "F. ingreso", filterable: { search: true, multi: false }, format: "{0:dd/MM/yyyy}" },
+                { field: "datestart", title: "F. Inicio", filterable: { search: true, multi: false }, format: "{0:dd/MM/yyyy}" },
+                { field: "dateend", title: "F. Fín", filterable: { search: true, multi: false }, format: "{0:dd/MM/yyyy}" },
                 { field: "category", hidden: true, title: "Categoría", filterable: { search: true, multi: true } },
                 { field: "brand", hidden: true, title: "Marca", filterable: { search: true, multi: true }},
 

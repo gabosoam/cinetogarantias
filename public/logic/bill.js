@@ -106,8 +106,8 @@ $(document).ready(function () {
                     site: { validation: { required: true, size: 50 }, type: 'string' },
                     contract: { validation: { required: true, size: 50 }, type: 'string' },
                     date: { validation: { required: true, }, type: 'date' },
-                    datestart: { validation: { required: true, }, type: 'date' },
-                    dateend: { validation: { required: true, }, type: 'date' },
+                    datestart: { validation: { required: false, }, type: 'date' },
+                    dateend: { validation: { required: false, }, type: 'date' },
                     reference: { validation: { required: true, }, type: 'string' },
                     user: { type: 'string', defaultValue: user, editable: false, visible: false },
                     state: { type: 'string', editable: false }
@@ -171,7 +171,7 @@ $(document).ready(function () {
                         { field: "contract", title: "Contrato", filterable: { search: true, multi: true } },
                         { field: "site", values:sites, title: "Sitio", editor: userNameComboBoxEditorSites, filterable: { search: true, multi: true } },
                         { field: "datestart", title: "Fecha Inicio garantía", filterable: { search: true, search: true }, format: "{0:dd/MM/yyyy}" },
-                        { field: "dateend", title: "Fecha fín garantía", filterable: { search: true, search: true }, format: "{0:dd/MM/yyyy}" },
+                        { field: "dateend", title: "Fecha fín garantía", filterable: { multi: false, search: true }, format: "{0:dd/MM/yyyy}" },
                         { field: "user", values: users, title: "Creado por", filterable: { multi: true, search: true } },
                         { field: "state", values: states, title: "Estado", filterable: { multi: true, search: true } },
 

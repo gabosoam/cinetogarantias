@@ -41,7 +41,12 @@ module.exports = {
     },
 
     update: function (datos, callback) {
-        connection.query('UPDATE bill SET `provider`=?, `date`=?,datestart=?, dateend=?, site=?, contract=?, `reference`=?, document=? WHERE (`id`=?) LIMIT 1', [datos.provider, new Date(datos.date).toLocaleDateString(),new Date(datos.datestart).toLocaleDateString(),new Date(datos.dateend).toLocaleDateString(),datos.site.toUpperCase(),datos.contract.toUpperCase(), datos.reference.toUpperCase(), datos.document, datos.id], function (error, results, fields) {//
+        var fechainicio;
+        var fechafin;
+
+        if (datos.datestart.trim()=='') {fechainicio= '';} else {fechainicio= new Date(datos.datestart).toLocaleDateString();}
+        if (datos.dateend.trim()=='') {fechafin= '';} else {fechafin= new Date(datos.dateend).toLocaleDateString();}
+        connection.query('UPDATE bill SET `provider`=?, `date`=?,datestart=?, dateend=?, site=?, contract=?, `reference`=?, document=? WHERE (`id`=?) LIMIT 1', [datos.provider, new Date(datos.date).toLocaleDateString(),fechainicio,fechafin,datos.site.toUpperCase(),datos.contract.toUpperCase(), datos.reference.toUpperCase(), datos.document, datos.id], function (error, results, fields) {//
             if (error) {
                 callback('error en la consulta: ' + error, null);
             } else {
@@ -73,7 +78,13 @@ module.exports = {
 
     create: function (datos, callback) {
 
-        connection.query('INSERT INTO bill (provider, date,datestart, dateend, site, contract, reference, document, user, type) VALUES (?,?,?,?,?,?,?,?,?,?)', [datos.provider, new Date(datos.date).toLocaleDateString(),new Date(datos.datestart).toLocaleDateString(),new Date(datos.dateend).toLocaleDateString(), datos.site.toUpperCase(),datos.contract.toUpperCase(), datos.reference.toUpperCase(), datos.document, datos.user,1], function (error, results, fields) {
+        var fechainicio;
+        var fechafin;
+
+        if (datos.datestart.trim()=='') {fechainicio= '';} else {fechainicio= new Date(datos.datestart).toLocaleDateString();}
+        if (datos.dateend.trim()=='') {fechafin= '';} else {fechafin= new Date(datos.dateend).toLocaleDateString();}
+
+        connection.query('INSERT INTO bill (provider, date,datestart, dateend, site, contract, reference, document, user, type) VALUES (?,?,?,?,?,?,?,?,?,?)', [datos.provider, new Date(datos.date).toLocaleDateString(),fechainicio,fechafin, datos.site.toUpperCase(),datos.contract.toUpperCase(), datos.reference.toUpperCase(), datos.document, datos.user,1], function (error, results, fields) {
             if (error) {
                 console.log(error)
                 callback('error en la consulta: ' + error, null);
