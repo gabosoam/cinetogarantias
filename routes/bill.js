@@ -17,6 +17,7 @@ router.get('/saludar', function (req, res, next) {
 
 router.get('/:bill', isLoggedIn, function (req, res, next) {
   var billsend = req.params.bill;
+  console.log(billsend);
 
   bill.readOne(billsend, function (error, data) {
 
